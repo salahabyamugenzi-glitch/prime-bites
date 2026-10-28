@@ -40,11 +40,65 @@ max-width: 850px;
 margin: 25px auto;
 padding: 0 18px;
 }
+.hero,
+.about-cafe {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 24px;
+align-items: center;
+margin-bottom: 30px;
+}
+.hero {
+background-color: #e7efdf;
+border-radius: 8px;
+overflow: hidden;
+}
+.hero-content,
+.about-cafe-content {
+padding: 24px;
+}
+.hero h2,
+.about-cafe h2 {
+color: #234b35;
+margin-top: 0;
+}
+.hero-image,
+.about-cafe-image {
+width: 100%;
+height: 320px;
+display: block;
+object-fit: cover;
+object-position: center;
+}
+.hero .button {
+margin-top: 10px;
+}
+.button:focus-visible {
+outline: 3px solid #d6a84f;
+outline-offset: 3px;
+}
+.menu-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 18px;
+}
 .menu-item {
 background-color: white;
-padding: 15px;
-margin: 12px 0;
 border-radius: 8px;
+overflow: hidden;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.menu-item img {
+width: 100%;
+height: 170px;
+display: block;
+object-fit: cover;
+}
+.menu-item-content {
+padding: 15px;
+}
+.menu-item h3 {
+margin-top: 0;
 }
 .price {
 color: #234b35;
@@ -90,7 +144,30 @@ margin-top: 30px;
         padding: 0 14px;
     }
 
-    .menu-item {
+    .hero,
+    .about-cafe {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content,
+    .about-cafe-content {
+        padding: 18px;
+    }
+
+    .hero-image,
+    .about-cafe-image {
+        height: 220px;
+    }
+
+    .hero .button {
+        display: inline-block;
+    }
+
+    .menu-item img {
+        height: 150px;
+    }
+
+    .menu-item-content {
         padding: 12px;
     }
 
@@ -117,31 +194,67 @@ margin-top: 30px;
 <a href="#contact">Contact</a>
 </nav>
 <main>
-<!-- Information about the business -->
-<section id="about">
-<h2>Welcome to Prime Bites</h2>
+<!-- Homepage hero section -->
+<section class="hero" aria-labelledby="hero-title">
+<div class="hero-content">
+<h2 id="hero-title">Good Food. Good Mood.</h2>
 <p>
-We serve delicious meals and refreshing drinks
-for students, families and busy professionals.
+A welcoming sample café concept for satisfying meals and refreshing drinks.
 </p>
+<a class="button" href="#menu">Explore Our Menu</a>
+</div>
+<img class="hero-image"
+     src="images/cafe-interior.jpeg"
+     alt="Café interior with a coffee on a table">
+</section>
+<!-- Sample About section -->
+<section id="about" class="about-cafe" aria-labelledby="about-title">
+<div class="about-cafe-content">
+<h2 id="about-title">About Our Café</h2>
+<p>
+Prime Bites Café is a fictional sample café concept created to showcase a
+welcoming place for meals and drinks.
+</p>
+<p>
+This sample menu brings together satisfying food and refreshing beverages
+in a simple, friendly setting.
+</p>
+</div>
+<img class="about-cafe-image"
+     src="images/cafe-interior.jpeg"
+     alt="Café interior with a coffee on a table">
 </section>
 <!-- Sample menu with demonstration prices -->
 <section id="menu">
 <h2>Our Menu</h2>
-<div class="menu-item">
-<h3>Chicken and Rice</h3>
+<div class="menu-grid">
+<article class="menu-item">
+<img src="images/Savory Delight_ Homemade Beef Fried Rice.jpeg"
+     alt="Beef fried rice">
+<div class="menu-item-content">
+<h3>Beef Fried Rice</h3>
 <p>A tasty, satisfying meal.</p>
-<p class="price">UGX 10,000</p>
+<p class="price">Sample price: UGX 10,000</p>
 </div>
-<div class="menu-item">
-<h3>Rolex</h3>
-<p>A Ugandan street-food favourite.</p>
-<p class="price">UGX 3,000</p>
-</div>
-<div class="menu-item">
-<h3>Fresh Juice</h3>
+</article>
+<article class="menu-item">
+<img src="images/Mango Shake.jpeg"
+     alt="Mango shake">
+<div class="menu-item-content">
+<h3>Mango Shake</h3>
 <p>A refreshing drink to enjoy.</p>
-<p class="price">UGX 4,000</p>
+<p class="price">Sample price: UGX 3,000</p>
+</div>
+</article>
+<article class="menu-item">
+<img src="images/Green Mint Tea – Refreshing, Soothing, and Full of Wellness Benefits.jpeg"
+     alt="Green mint tea">
+<div class="menu-item-content">
+<h3>Green Mint Tea</h3>
+<p>A refreshing drink to enjoy.</p>
+<p class="price">Sample price: UGX 4,000</p>
+</div>
+</article>
 </div>
 </section>
 <!-- Contact information and call to action -->
@@ -149,10 +262,9 @@ for students, families and busy professionals.
 <h2>Visit or Contact Us</h2>
 <p>Kampala, Uganda</p>
 <p>Replace this sample contact with the real business details.</p>
-<a class="button"
-               href="https://wa.me/256700000000">
-Contact Us on WhatsApp
-</a>
+<span class="button" aria-disabled="true">
+WhatsApp contact coming soon.
+</span>
 </section>
 </main>
 <!-- The bottom section of the website -->
